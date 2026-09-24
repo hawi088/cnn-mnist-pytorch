@@ -1,7 +1,7 @@
 import torch
 from torchvision import datasets
-from torchvision import v2
-
+from torchvision.transforms import v2
+from torch.utils.data import DataLoader
 transform = v2.Compose([
     v2.ToImage(),
     v2.ToDtype(torch.float32,scale=True)
@@ -20,13 +20,26 @@ test_dataset = datasets.MNIST(
     transform=transform
 )
 
-print("Training dataset Length:",len(train_dataset))
-print("Test dataset Length:", len(test_dataset))
-image, label = train_dataset[0]
-print(image)
-print("Image type:",type(image))
-print("Image size:", image.size)
-print("Label:",label)
+# print("Training dataset Length:",len(train_dataset))
+# print("Test dataset Length:", len(test_dataset))
+# image, label = train_dataset[0]
+# print(image)
+# print("Image type:",type(image))
+# print("Image size:", image.size)
+# print("Label:",label)
 
 
-image.show()
+# image.show()
+
+
+train_loader = DataLoader(
+    train_dataset,
+    batch_size=32,
+    shuffle=True
+)
+
+test_loader = DataLoader(
+    test_dataset,
+    batch_size=32,
+    shuffle=False
+)

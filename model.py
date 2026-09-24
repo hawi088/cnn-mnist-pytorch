@@ -41,9 +41,9 @@ class MNISTCNN(nn.Module):
 
 #Debug
 
-model = MNISTCNN()
-x = torch.randn(32,1,28,28)
+# model = MNISTCNN()
+# x = torch.randn(32,1,28,28)
 
-output = model(x)
+# output = model(x)
 
-print(output.shape)
+# print(output.shape)
