@@ -77,3 +77,9 @@ accuracy = correct / len(test_loader.dataset)
 
 print(f"Test Loss: {average_test_loss:.4f}")
 print(f"Test Accuracy: {accuracy * 100:.2f}%")
+torch.save(
+    model.state_dict(),
+    "mnist_cnn.pth"
+)
+
+print("Model saved to mnist_cnn.pth")
